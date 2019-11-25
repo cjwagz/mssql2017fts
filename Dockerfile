@@ -1,6 +1,5 @@
 FROM ubuntu:16.04
 LABEL com.microsoft.product="Microsoft SQL Server"
-LABEL com.microsoft.version="14.0.3238.1"
 
 ENV ACCEPT_EULA=Y
 ENV MSSQL_SA_PASSWORD='P@ssw0rd1!'
