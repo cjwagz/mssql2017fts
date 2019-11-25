@@ -14,7 +14,8 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y --no-install-recommends mssql-server mssql-server-fts \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && /opt/mssql/bin/mssql-conf -n setup
 
 EXPOSE 1433/tcp
 CMD ["/opt/mssql/bin/sqlservr"]
