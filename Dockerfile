@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 LABEL com.microsoft.product="Microsoft SQL Server"
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV ACCEPT_EULA=Y
 ENV MSSQL_SA_PASSWORD='P@ssw0rd1!'
 ENV MSSQL_PID=Developer
@@ -13,8 +14,7 @@ RUN apt-get update \
     && apt-get update \
     && apt-get install -y --no-install-recommends mssql-server mssql-server-fts \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
-    && /opt/mssql/bin/mssql-conf -n setup
+    && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 1433/tcp
 CMD ["/opt/mssql/bin/sqlservr"]
